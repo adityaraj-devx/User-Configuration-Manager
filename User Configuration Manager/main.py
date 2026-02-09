@@ -10,6 +10,7 @@ def add_setting(settings, new_settings):
     if key in settings:
         return f"Setting {key} already exists! Cannot add a new setting with this name."
     else:
+        settings[key] = value
         return f"Settings {key} added with value {value} successfully!"
 
 def update_settings(settings, new_settings):
