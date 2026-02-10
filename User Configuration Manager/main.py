@@ -1,4 +1,3 @@
-#settings
 test_settings = {
     'theme': 'light',
     'language': 'English',
