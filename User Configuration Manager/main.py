@@ -14,7 +14,7 @@ def add_setting(settings, new_settings):
         settings[key] = value
         return f"Setting '{key}' added with value '{value}' successfully!"
 
-def update_settings(settings, new_settings):
+def update_setting(settings, new_settings):
     key = new_settings[0].lower()
     value = new_settings[1].lower()
     if key in settings:
@@ -32,7 +32,11 @@ def delete_setting(settings, key):
         return "Setting not found!"
     
 def view_settings(settings):
-    if settings is not test_settings:
+    if not settings:
         return "No settings available."
-    elif settings in test_settings:
-        return test_settings
+
+    result = ["Current User Settings:"]
+    for key, value in settings.items():
+        result.append(f"{key.capitalize()}: {value.lower()}")
+
+    return "\n".join(result) + "\n"
