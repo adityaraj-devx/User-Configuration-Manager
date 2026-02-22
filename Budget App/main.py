@@ -20,3 +20,15 @@ class Category:
 
     def get_balance(self):
         return sum(item["amount"] for item in self.ledger)
+    
+    def transfer(self, amount, category):
+        if self.check_fund(amount):
+            self.withdraw(amount, f"Transfer to {category.name}")
+            self.deposit(amount, f"Transfer from {self.name}")
+            return True
+        return False
+    
+    def check_fund(self, amount):
+        if amount > self.get_balance:
+            return False
+        return True
